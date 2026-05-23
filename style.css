@@ -1,62 +1,131 @@
+/* 全体のベースを黒背景・白文字に変更 */
 body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
+    background-color: #121212;
+    color: #f0f0f0;
     margin: 0;
     padding: 20px;
 }
 
 #app-container {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
-    background: #fff;
-    padding: 20px;
+    background: #1e1e1e;
+    padding: 25px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(200, 0, 0, 0.3); /* 赤みがかったシャドウ */
+    border: 1px solid #333;
 }
 
-h1, h2 {
-    color: #1a365d;
+/* タイトル：赤背景に白文字・白枠線（チャート式リスペクト） */
+h1 {
+    background-color: #b30000;
+    color: #ffffff;
+    padding: 20px 10px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
     text-align: center;
+    font-family: serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #ff4d4d;
+    text-align: center;
+    border-bottom: 2px solid #555;
+    padding-bottom: 10px;
 }
 
 .hidden {
     display: none !important;
 }
 
+/* 標準ボタン */
 button {
-    background-color: #2b6cb0;
+    background-color: #b30000;
     color: white;
-    border: none;
+    border: 1px solid #ff4d4d;
     padding: 12px 20px;
     margin: 10px 0;
     border-radius: 4px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     width: 100%;
+    transition: 0.2s;
+}
+
+button:hover {
+    background-color: #d60000;
 }
 
 button:disabled {
-    background-color: #cbd5e0;
+    background-color: #444;
+    color: #888;
+    border: 1px solid #333;
     cursor: not-allowed;
 }
 
 .btn-secondary {
-    background-color: #718096;
+    background-color: #333;
+    border: 1px solid #777;
 }
 
+.btn-secondary:hover {
+    background-color: #555;
+}
+
+/* 巨大ボタン（トップ画面用） */
+.btn-huge {
+    font-size: 1.8rem;
+    padding: 30px;
+    margin: 20px 0;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.btn-search-mode {
+    background-color: #222;
+    color: #ff4d4d;
+    border: 2px solid #ff4d4d;
+}
+
+.btn-search-mode:hover {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+/* フォームとカードのダーク化 */
 .form-group {
     margin-bottom: 20px;
-    padding: 10px;
-    background: #f7fafc;
+    padding: 15px;
+    background: #2a2a2a;
     border-radius: 4px;
+    border: 1px solid #444;
+}
+
+label {
+    display: block;
+    color: #ddd;
+    font-weight: bold;
 }
 
 .radio-group, .checkbox-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     margin-top: 10px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    cursor: pointer;
+    background: #111;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #444;
 }
 
 select {
@@ -64,18 +133,23 @@ select {
     padding: 10px;
     font-size: 16px;
     margin-top: 5px;
+    background: #111;
+    color: #fff;
+    border: 1px solid #555;
 }
 
+/* 問題表示カード */
 .question-card {
-    border: 1px solid #e2e8f0;
+    border: 1px solid #444;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-radius: 4px;
-    background: #fafafa;
+    background: #1a1a1a;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
 .question-text, .answer-text {
-    white-space: pre-wrap; /* テキスト内の改行（\n）をそのまま表示する設定 */
+    white-space: pre-wrap;
     line-height: 1.8;
     font-size: 15px;
     margin-bottom: 15px;
@@ -86,15 +160,31 @@ select {
     height: auto;
     display: block;
     margin: 15px 0;
-    border: 1px solid #ddd;
+    border: 1px solid #555;
     border-radius: 4px;
 }
 
 .answer-section {
     margin-top: 15px;
     padding-top: 15px;
-    border-top: 1px dashed #cbd5e0;
-    background: #fff;
+    border-top: 1px dashed #555;
+    background: #111;
     padding: 15px;
     border-radius: 4px;
+}
+
+/* 画面上部へジャンプするボタン */
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: auto;
+    padding: 15px 25px;
+    background-color: #b30000;
+    color: white;
+    border: 2px solid white;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    font-weight: bold;
+    z-index: 1000;
 }
