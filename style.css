@@ -1,0 +1,87 @@
+body {
+    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+#app-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    color: #1a365d;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+button {
+    background-color: #2b6cb0;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:disabled {
+    background-color: #cbd5e0;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background-color: #718096;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f7fafc;
+    border-radius: 4px;
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.question-card {
+    border: 1px solid #e2e8f0;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.question-card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.answer-section {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #cbd5e0;
+}
