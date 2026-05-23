@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>数学 受験対策アプリ</title>
+    <title>卍絶望ケ丘卍　大学入試数学　過去問道場</title>
     <link rel="stylesheet" href="style.css">
     
     <script>
@@ -20,10 +20,10 @@
     <div id="app-container">
         
         <div id="screen-home" class="screen">
-            <h1>数学 受験対策アプリ</h1>
+            <h1>卍絶望ケ丘卍<br><span style="font-size: 0.6em;">大学入試数学 過去問道場</span></h1>
             <div class="button-group">
-                <button onclick="switchScreen('screen-practice-settings')">演習モード</button>
-                <button onclick="switchScreen('screen-search')">問題検索</button>
+                <button class="btn-huge" onclick="switchScreen('screen-practice-settings')">演習を始める</button>
+                <button class="btn-huge btn-search-mode" onclick="switchScreen('screen-search')">問題検索</button>
             </div>
         </div>
 
@@ -31,19 +31,21 @@
             <h2>演習条件の設定</h2>
             <form id="practice-form">
                 <div class="form-group">
-                    <label>難易度 (1つ選択):</label>
-                    <div class="radio-group" id="difficulty-group">
-                        <label><input type="radio" name="difficulty" value="1"> ★1</label>
-                        <label><input type="radio" name="difficulty" value="2"> ★2</label>
-                        <label><input type="radio" name="difficulty" value="3"> ★3</label>
-                        <label><input type="radio" name="difficulty" value="4"> ★4</label>
-                        <label><input type="radio" name="difficulty" value="5"> ★5</label>
+                    <label>難易度 (複数選択可):</label>
+                    <div class="checkbox-group" id="difficulty-group">
+                        <label><input type="checkbox" name="difficulty" value="all"> すべて</label>
+                        <label><input type="checkbox" name="difficulty" value="1"> ★1</label>
+                        <label><input type="checkbox" name="difficulty" value="2"> ★2</label>
+                        <label><input type="checkbox" name="difficulty" value="3"> ★3</label>
+                        <label><input type="checkbox" name="difficulty" value="4"> ★4</label>
+                        <label><input type="checkbox" name="difficulty" value="5"> ★5</label>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>カテゴリ (複数選択可):</label>
                     <div class="checkbox-group" id="category-group">
+                        <label><input type="checkbox" name="category" value="all"> すべて</label>
                         <label><input type="checkbox" name="category" value="数学Ⅰ"> 数学Ⅰ</label>
                         <label><input type="checkbox" name="category" value="数学Ⅱ"> 数学Ⅱ</label>
                         <label><input type="checkbox" name="category" value="数学Ⅲ"> 数学Ⅲ</label>
@@ -73,33 +75,40 @@
         <div id="screen-practice-questions" class="screen hidden">
             <h2>演習中</h2>
             <div id="practice-container"></div>
-            <button onclick="switchScreen('screen-home')">演習を終了する</button>
+            <button class="btn-secondary" onclick="switchScreen('screen-home')">演習を終了する</button>
         </div>
 
         <div id="screen-search" class="screen hidden">
+            <button class="btn-secondary" onclick="switchScreen('screen-home')" style="margin-bottom: 20px;">トップに戻る</button>
+            
             <h2>問題検索</h2>
-            <div class="search-filters">
-                <select id="search-difficulty">
-                    <option value="">すべての難易度</option>
-                    <option value="1">★1</option>
-                    <option value="2">★2</option>
-                    <option value="3">★3</option>
-                    <option value="4">★4</option>
-                    <option value="5">★5</option>
-                </select>
-                <select id="search-category">
-                    <option value="">すべてのカテゴリ</option>
-                    <option value="数学Ⅰ">数学Ⅰ</option>
-                    <option value="数学Ⅱ">数学Ⅱ</option>
-                    <option value="数学Ⅲ">数学Ⅲ</option>
-                    <option value="数学A">数学A</option>
-                    <option value="数学B">数学B</option>
-                    <option value="数学C">数学C</option>
-                </select>
-                <button onclick="executeSearch()">検索</button>
+            <div class="search-filters form-group">
+                <label>難易度 (複数選択可):</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="search-difficulty" value="all"> すべて</label>
+                    <label><input type="checkbox" name="search-difficulty" value="1"> ★1</label>
+                    <label><input type="checkbox" name="search-difficulty" value="2"> ★2</label>
+                    <label><input type="checkbox" name="search-difficulty" value="3"> ★3</label>
+                    <label><input type="checkbox" name="search-difficulty" value="4"> ★4</label>
+                    <label><input type="checkbox" name="search-difficulty" value="5"> ★5</label>
+                </div>
+                
+                <label style="margin-top: 15px;">カテゴリ (複数選択可):</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="search-category" value="all"> すべて</label>
+                    <label><input type="checkbox" name="search-category" value="数学Ⅰ"> 数学Ⅰ</label>
+                    <label><input type="checkbox" name="search-category" value="数学Ⅱ"> 数学Ⅱ</label>
+                    <label><input type="checkbox" name="search-category" value="数学Ⅲ"> 数学Ⅲ</label>
+                    <label><input type="checkbox" name="search-category" value="数学A"> 数学A</label>
+                    <label><input type="checkbox" name="search-category" value="数学B"> 数学B</label>
+                    <label><input type="checkbox" name="search-category" value="数学C"> 数学C</label>
+                </div>
+                <button class="btn-primary" onclick="executeSearch()" style="margin-top: 20px;">検索</button>
             </div>
+            
             <div id="search-results-container"></div>
-            <button class="btn-secondary" onclick="switchScreen('screen-home')">戻る</button>
+            
+            <button id="btn-back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">▲ 上部へ</button>
         </div>
 
     </div>
